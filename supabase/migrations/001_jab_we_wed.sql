@@ -55,6 +55,7 @@ create table if not exists public.jw_match_sessions (
   expires_at timestamptz not null
 );
 create index if not exists jw_match_sessions_expiry_idx on public.jw_match_sessions(expires_at);
+create index if not exists jw_match_sessions_event_idx on public.jw_match_sessions(event_id);
 
 -- ── Rate limiting (fixed window, keyed by hashed IP + action) ─────────────
 create table if not exists public.jw_rate_limits (
